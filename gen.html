@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quotation Generator</title>
+   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="script.js"></script>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+
+</head>
+
+<body>
+<section>
+ <div class="header" align="center">
+  <img src="images/logo.png" alt="logo" />
+</div>
+</section>
+
+<section>
+  <div class="main">
+    <h1> QUOTATION GENERATOR </h1>
+  </div>
+  <div class="container">
+
+  <form action="" method="">
+<input class="box" type="text" id="fname" name="text" placeholder="Hotel">
+
+<!-- Dropdown -->
+
+    <label for="country"></label>
+    <select class="box" id="country" name="country">
+      <option value="SINGLE">SINGLE</option>
+      <option value="DOUBLE">DOUBLE</option>
+      <option value="TRIPLE">TRIPLE</option>
+      <option value="QUAD">QUAD</option>
+      <option value="QUINT">QUINT</option>
+    </select>
+  
+
+<!-- Date/time -->
+
+      <div class="form-group"> <!-- Date input -->
+        <label class="control-label" for="date"></label>
+        <input class="box" class="form-control" id="pdate" name="date" placeholder="From Date" type="text" onchange="cal()" />
+      </div>
+
+      <div class="form-group"> <!-- Date input -->
+        <label class="control-label" for="date"></label>
+        <input class="box" class="form-control" id="ddate" name="date" placeholder="To Date" type="text" onchange="cal()" />
+      </div>
+
+     <script>
+    $(document).ready(function(){
+      var date_input=$('input[name="date"]'); //our date input has the name "date"
+      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+      var options={
+        format: 'mm/dd/yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      };
+      date_input.datepicker(options);
+    })
+</script>
+
+<!-- Date/time -->
+
+<div>
+<input class="box1" type="text" id="tdays" name="tdays" placeholder="Total days" readonly /> per Night
+</div>
+<div>
+<input class="box2" type="number" id="riy" name="riy" placeholder="Riyal" onkeyup="riyadhVal(this.value, tdays, result)" />
+</div>
+<div>
+<input class="box3" type="text" id="result" name="result" placeholder="Total amount" readonly />
+</div>
+
+<input class="box" type="text" id="fname" name="text" placeholder="Hotel">
+
+<label for="rooms"></label>
+    <select class="box" id="rooms" name="rooms">
+      <option value="SINGLE">SINGLE</option>
+      <option value="DOUBLE">DOUBLE</option>
+      <option value="TRIPLE">TRIPLE</option>
+      <option value="QUAD">QUAD</option>
+      <option value="QUINT">QUINT</option>
+    </select>
+
+  <div class="form-group"> <!-- Date input -->
+        <label class="control-label" for="date"></label>
+        <input class="box" class="form-control" id="pdate1" name="date" placeholder="MM/DD/YYY" type="text" onchange="cal1()" />
+      </div>
+
+    
+
+
+       <div class="form-group"> <!-- Date input -->
+        <label class="control-label" for="date"></label>
+        <input class="box" class="form-control" id="ddate1" name="date" placeholder="MM/DD/YYY" type="text" onchange="cal1()" />
+      </div>
+
+<div>
+  <input class="box1" type="text" id="tdays1" name="tdays1" placeholder="Total days" readonly /> per Night
+</div>
+<div>
+  <input class="box2" type="number" id="riy0" name="riy" placeholder="Riyal" onkeyup="riyadhVal(this.value, tdays1, result0)" />
+</div>
+<div>
+  <input class="box3" type="text" id="result0" name="result0" placeholder="Total amount" readonly />
+</div>
+
+
+<div>
+<input class="box" type="text" id="fname" name="text" placeholder="Transport">
+<input class="box" type="number" id="costTransport" name="text" placeholder="Riyal for Transport">
+</div>
+
+
+<div class="visa">
+  <b class="visa1">VISA:</b> <span class="mright"><input id="hide" type="radio" name="type" value="No" /> No </span>
+                 <input id="show" type="radio" name="type" value="Yes" /> Yes
+                 <input class="box2" type="textbox" id="vrupee" name="vrupee" placeholder="Visa in Rs." onkeyup="endAmount(this.value)" > ₹
+</div>
+
+
+<div>
+<input class="box" type="text" id="fname" name="text" placeholder="Extra service" />
+<input class="box" type="number" id="costExtra" name="text" placeholder="Riyal for Extra service" onkeyup="totalAmount(this.value)" >
+</div>
+
+
+<div>
+<input class="box1" type="text" id="costFinal" name="lastname" placeholder="Max amount" readonly />
+</div>
+<div>
+<input class="box22" type="text" id="rCur" name="lastname" placeholder="Riyal" onkeyup="finalAmount(this.value)" >
+</div>
+<div>
+<input class="box3" type="text" id="final" name="lastname" placeholder="Final amount" readonly />
+</div>
+<div>
+<input class="box3" type="number" id="ryl1" name="lastname" placeholder="Riyal value" onkeyup="grandAmount(this.value)" >
+</div>
+<div>
+<input class="box4" type="text" id="final1" name="lastname" placeholder="V+FA" hidden />
+</div>
+<div>
+<input class="box4" type="text" id="end" name="lastname" placeholder="V+FA" readonly />
+</div>
+
+
+ <div class="btn">
+   <button class="btn1" onclick="showMessage()" value="submit" type="button" class="btn btn-primary btn-lg"> Generate Quotation </button>
+ </div>
+
+ <div class="txta">
+   
+    <textarea id = "display_message" >Some text...</textarea>
+ </div>
+ <div>
+   <button id="but1">Copy Text</button>
+ </div>
+
+<div>
+  <a id="show_message" href="whatsapp://send?text= " data-action="share/whatsapp/share">Share via Whatsapp</a>
+</div>
+ <script>
+
+   $(document).ready(function() {
+   $("#but1").click(function () {
+    $("#display_message").select();
+    document.execCommand('copy');
+   });
+   });
+
+ </script>
+
+</form>
+</div>
+
+    </div>
+  </div>    
+ </div>
+</div>
+</section>
+
+</body>
+</html>
